@@ -7,10 +7,10 @@ public class ProductManage implements ProductInterface<Product> {
 
 
     public void addProduct1() {
-        Product product1 = new Product(1, "tuanle", 15000, 12, "abv");
-        Product product2 = new Product(2, " tahi", 16000, 12, "3452453");
-        Product product3 = new Product(3, "duong", 13000, 12, "â2222");
-        Product product4 = new Product(4, "tuanle", 19000, 12, "ânnaa");
+        Product product1 = new Product(1, "táo", 15000, 12, "táo tàu");
+        Product product2 = new Product(2, "chuối", 16000, 10, "chuối tây");
+        Product product3 = new Product(3, "dưa", 13000, 11, "dưa ta");
+        Product product4 = new Product(4, "ổi", 19000, 12, "Ổi");
         products.add(product1);
         products.add(product2);
         products.add(product3);
@@ -148,11 +148,17 @@ public class ProductManage implements ProductInterface<Product> {
         products.sort(new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {
-                if (o1.getPrince() > o2.getNumProduct()) return 1;
+                if (o1.getPrince() > o2.getPrince()) return 1;
                 else if (o1.getPrince() < o2.getPrince()) return -1;
                 else return 0;
             }
         });
+
+        System.out.printf("%-15s%-35s%-35s%-35s%s",
+                "Mã sản phẩm", "Tên sản phẩm", "Giá sản phẩm", "Số lượng sản phẩm", "Mô tả sản phẩm\n");
+        for (Product p : products) {
+            p.display();
+        }
     }
 
     public void arrangeProductPriceIncreaseDecrease() {
@@ -164,6 +170,11 @@ public class ProductManage implements ProductInterface<Product> {
                 else return 0;
             }
         });
+        System.out.printf("%-15s%-35s%-35s%-35s%s",
+                "Mã sản phẩm", "Tên sản phẩm", "Giá sản phẩm", "Số lượng sản phẩm", "Mô tả sản phẩm\n");
+        for (Product p : products) {
+            p.display();
+        }
     }
 
 
