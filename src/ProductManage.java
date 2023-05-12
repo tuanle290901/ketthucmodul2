@@ -71,7 +71,7 @@ public class ProductManage implements ProductInterface<Product> {
         String description = scanner.nextLine();
         Product product = new Product(idProduct, name, prince, numProduct, description);
         products.add(product);
-        writeFileCsv();
+        writeFileProduct();
 
     }
 
@@ -127,7 +127,7 @@ public class ProductManage implements ProductInterface<Product> {
         }
         System.out.println("Sản phẩm sau khi cập nhật:");
         product.display();
-        writeFileCsv();
+        writeFileProduct();
     }
 
 
@@ -139,7 +139,7 @@ public class ProductManage implements ProductInterface<Product> {
         }
         assert product != null;
         product.display();
-        writeFileCsv();
+        writeFileProduct();
     }
 
 
@@ -222,33 +222,41 @@ public class ProductManage implements ProductInterface<Product> {
         }
     }
 
-    public void readFileCsv() {
+    public void readFileProduct() {
         File file = new File("D:\\modul_2\\modul2_\\src\\Product.txt");
+
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                String[] data = line.split(",");
-                products.add(new Product(data[1], data[2],
-                        Double.parseDouble(data[3]),
-                        Integer.parseInt(data[4]), data[5]));
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String string;
+            while ((string = bufferedReader.readLine()) != null) {
+                String[] arrProduct = string.split(",");
+                Product product = new Product(Integer.parseInt(arrProduct[0]), arrProduct[1], arrProduct[2],
+                        Double.parseDouble(arrProduct[3]), Integer.parseInt(arrProduct[4]), arrProduct[5]);
+                products.add(product);
             }
             bufferedReader.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            fileReader.close();
+
+        } catch (IOException e) {
+            System.out.println();
         }
+
     }
 
-    public void writeFileCsv() {
+    public void writeFileProduct() {
         File file = new File("D:\\modul_2\\modul2_\\src\\Product.txt");
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
-            for (Product product : products) {
-                bufferedWriter.write(product.writeFileCsv() + "\n");
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (Product p : products) {
+                bufferedWriter.write(p.toString() + "\n");
             }
             bufferedWriter.close();
-        } catch (Exception e) {
+            fileWriter.close();
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 }
+

@@ -23,6 +23,9 @@ public class Product implements Serializable {
     public Product(String datum, String datum1, double prince, int numProduct, String datum2) {
     }
 
+    public Product(int i, String s, String s1, double v, int i1, String s2) {
+    }
+
     public int getIdProduct() {
         return idProduct;
     }

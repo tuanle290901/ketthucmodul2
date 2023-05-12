@@ -1,1 +1,4 @@
-
+Product{idProduct='1', name='táo', prince=15000.0, numProduct=12, description='táo tàu'}
+Product{idProduct='2', name='chuối', prince=16000.0, numProduct=10, description='chuối tây'}
+Product{idProduct='3', name='dưa', prince=13000.0, numProduct=11, description='dưa ta'}
+Product{idProduct='4', name='ổi', prince=19000.0, numProduct=12, description='Ổi'}

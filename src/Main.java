@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +8,6 @@ public class Main {
         ProductManage productManage = new ProductManage();
         productManage.addProduct1();
         Menu(productManage, scanner);
-        productManage.readFileCsv();
     }
 
     public static void Menu(ProductManage productManage, Scanner scanner) {
@@ -49,10 +49,10 @@ public class Main {
                         productManage.findProduct();
                         break;
                     case 7:
-                        productManage.writeFileCsv();
+                        productManage.writeFileProduct();
                         break;
                     case 8:
-                        productManage.readFileCsv();
+                        productManage.readFileProduct();
                         break;
                     case 9:
                         System.exit(0);
